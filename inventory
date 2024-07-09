@@ -1,0 +1,18 @@
+[web_nodes]
+web_node1 ansible_host=192.168.1.100
+web_node2 ansible_host=192.168.1.101
+
+
+[db_nodes]
+db1 ansible_host=192.168.1.200
+db2 ansible_host=192.168.1.201
+
+
+[dallas_server]
+db3 ansible_host=192.168.1.200
+db4 ansible_host=192.168.1.201
+
+
+[common_nodes:children]
+web_nodes
+db_nodes

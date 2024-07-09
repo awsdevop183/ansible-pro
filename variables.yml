@@ -9,6 +9,23 @@
 
 
 
+- name: Variables
+  hosts: all
+  vars:
+    ip: 10.2.2.0
+    name: "Madhu"
+    packages:
+      - nginx
+        postgresql
+        git
+  tasks:
+    - name: 
+      file:
+        path: /tmp/madhu.txt
+        state: touch
+    
+
+
 
 # dns_server: 10.1.250.10 
 

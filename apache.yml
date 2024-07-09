@@ -1,4 +1,4 @@
-  - hosts: linux
+  - hosts: common_nodes
     become: yes
     vars:
       service: apache2
