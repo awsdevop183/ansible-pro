@@ -1,0 +1,38 @@
+- name: "Create a blank file"
+  hosts: all
+  become: yes
+  tasks:
+    - name: "create a blank file"
+      file:
+        path: /usr/src/web.txt
+        state: touch
+        mode: 0644
+        owner: '{{ansible_user}}'
+        group: '{{ansible_user}}'
+
+
+
+
+# - name: "Create a blank file"
+#   hosts: stapp02
+#   become: yes
+#   tasks:
+#     - name: "create a blank file"
+#       file:
+#         path: /usr/src/web.txt
+#         state: touch
+#         mode: 0644
+#         owner: steve
+#         group: steve
+
+# - name: "Create a blank file"
+#   hosts: stapp03
+#   become: yes
+#   tasks:
+#     - name: "create a blank file"
+#       file:
+#         path: /usr/src/web.txt
+#         state: touch
+#         mode: 0644
+#         owner: banner
+#         group: banner
