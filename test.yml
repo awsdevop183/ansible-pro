@@ -1,3 +1,5 @@
+## List type variables
+
 - name: Variables
   hosts: localhost
   vars:
@@ -13,14 +15,17 @@
 
 
 
-
+## Dictionary variables
 - name: Variables
   hosts: localhost
   vars:
     name: madhu.txt
     ip: 192.168.0.100
+    username:
+      name: madhu
+      domain: cloudops
   tasks:
     - name: 
       file:
-        path: ./{{name}}
+        path: ./{{username['domain']}}
         state: touch
