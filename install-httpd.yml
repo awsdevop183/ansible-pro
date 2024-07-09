@@ -1,0 +1,28 @@
+---
+- name: Install httpd server on all app servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
+
+
+
+---
+- name: Archive Module Kodekloud Engineer task
+  hosts: all
+  become: yes
+  tasks:
+    - name: "Archive files on app servers"
+      archive:
+        path: /usr/src/finance/
+        dest: /opt/finance/demo.tar.gz
+        format: gz
+        owner: '{{ansible_user}}'
+        group: '{{ansible_user}}'
