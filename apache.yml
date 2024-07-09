@@ -1,0 +1,13 @@
+  - hosts: linux
+    become: yes
+    vars:
+      service: apache2
+    tasks:
+      - name: install apache2
+        apt: name={{ service }} update_cache=yes state=latest
+      - name: start apache2
+        service: name=apache2 state=started
+      - name: "Add a new user"
+        user: name=rishi uid=1040
+      - name: "Add a new user"
+        user: name=vipul uid=1041

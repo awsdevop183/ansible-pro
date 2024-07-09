@@ -1,0 +1,15 @@
+- name: Variables
+  hosts: all
+  vars:
+    dns_server: 10.1.250.10
+  tasks:
+    - name: 
+      lineinfile: /etc/resolv.conf
+      line: 'name server {{dns_server}}'
+
+
+
+
+# dns_server: 10.1.250.10 
+
+# In variables file
