@@ -1,0 +1,13 @@
+- name: Create users
+  become: yes
+  hosts: all
+  tasks:
+    - name: Create user
+      user: name='{{item.name}}' state=present uid='{{item.uid}}'
+      with_items:
+        - name: madhu
+          uid: 1010
+        - name: revanth
+          uid: 1013
+        - name: test
+          uid: 1015

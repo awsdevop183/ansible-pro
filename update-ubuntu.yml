@@ -1,0 +1,23 @@
+- hosts: madhukarreddy.com
+  tasks:
+  - name: update/upgrade
+    block:
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+        update_cache: yes
+
+    - name: Upgrade the platform full (apt-get full-upgrade)
+      apt:
+        upgrade: full
+    
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
+    become: yes
+    tags:
+    - update
+    - ubuntu
